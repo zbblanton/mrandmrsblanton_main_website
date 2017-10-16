@@ -260,8 +260,6 @@
 
 
       function resize_sreen(){
-        //Fix for iOS random resize when scrolling
-        //if ($(window).width() != windowWidth) {
           if($(window).width() < 512){
             $('.menu_item').addClass('menu_is_mobile')
             $('.menu_mobile_btn').css('display', 'block');
