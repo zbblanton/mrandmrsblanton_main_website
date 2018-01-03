@@ -1,0 +1,56 @@
+body {
+  background-color: #fef4e8;
+}
+
+.footer {
+  background-color: #a3caa4;
+  color: white;
+}
+
+h1, h2 {
+  font-family: 'Petit Formal Script', cursive;
+}
+
+.titles {
+    color: #a3caa4;
+    padding-bottom: 20px;
+    margin-bottom: 52px; !important
+    border-bottom: aliceblue;
+    border-bottom-color: #cecece;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    /* text-align: center; */
+}
+
+.content-section {
+    padding-top: 6em;
+    padding-bottom: 6em;
+}
+
+.fullbanner {
+  background: url('../pic2.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.midbanner {
+  background: url('../pic1.jpeg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.lastbanner {
+  background: url('../pic3.jpeg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}

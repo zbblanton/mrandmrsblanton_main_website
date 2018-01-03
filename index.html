@@ -1,349 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MrandMrsBlanton</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script|Poiret+One" rel="stylesheet">
-    <style>
-      @media screen and (min-width: 512px) {
-        body {
-          background: url('background.jpg') no-repeat center center fixed;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-        }
+    <link rel="stylesheet" href="css/style.css" />
 
-        .menu_mobile_btn, .menu_mobile_title {
-          display: none;
-        }
-
-        .menu {
-          display: flex;
-          justify-content: center;
-          flex-direction: row;
-          padding: 10px;
-        }
-
-        .menu_item {
-          margin-left: 8px;
-          margin-right: 8px;
-          padding: 8px;
-          border: solid 2px white;
-          border-radius: 5px;
-          font-family: 'Poiret One', cursive;
-          font-size: 25px;
-          font-weight: bold;
-          width: 100px;
-        }
-
-        .menu_item:hover {
-          background-color: rgba(255, 255, 255, 0.23);
-        }
-
-        ::-webkit-scrollbar-track {
-          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
-          border-radius: 10px;
-          background-color: rgba(0, 0, 0, 0.15);
-        }
-
-        ::-webkit-scrollbar {
-          width: 6px;
-          background-color: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-          background-color: rgba(255, 253, 253, 0.9);
-        }
-
-        #home p{
-          margin-left: 100px;
-          margin-right: 100px;
-          font-size: 1.15em;
-        }
-
-        .title{
-          font-size: 5em;
-          margin-bottom: 0;
-        }
-
-        .sub_title{
-          font-size: 3em;
-        }
-      }
-      @media screen and (max-width: 512px) {
-        body {
-          background: url('mobile_background.jpg') no-repeat center center fixed;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-        }
-        .menu{
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          padding: 10px;
-        }
-
-        .menu_item {
-          display: none;
-          margin-left: 8px;
-          margin-right: 8px;
-          padding: 8px;
-          border: solid 2px white;
-          border-radius: 5px;
-          font-family: 'Poiret One', cursive;
-          font-size: 25px;
-          font-weight: bold;
-          width: 100px;
-          margin-bottom: 20px;
-        }
-
-        .menu_mobile_btn{
-          padding: 6px;
-          border: solid 2px white;
-          border-radius: 5px;
-          font-family: 'Poiret One', cursive;
-          font-size: 25px;
-          font-weight: bold;
-          line-height: 8px;
-        }
-        .menu_mobile_btn_dash{
-          width: 35px;
-          height: 2px;
-          background-color: white;
-          border-radius: 9px;
-          margin: 6px 0;
-        }
-
-        .menu_mobile_title{
-          display: none;
-        }
-
-        .title{
-          font-size: 3em;
-        }
-      }
-      body {
-        color: white;
-        text-align: center;
-        overflow: hidden;
-      }
-
-      body, html, .container, .row{
-        height: 100%;
-        width: 100%;
-        margin: 0;
-
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      .page{
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        bottom: 0%;
-
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-
-      }
-
-      @keyframes page_slide_animation {
-          0% {
-            -ms-transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-          }
-          50% {
-            -ms-transform: translate3d(0,100%,0);
-            -webkit-transform: translate3d(0,100%,0);
-            transform: translate3d(0,100%,0);
-          }
-          51% {
-            -ms-transform: translate3d(0,-200%,0);
-            -webkit-transform: translate3d(0,-200%,0);
-            transform: translate3d(0,-200%,0);
-          }
-          100% {
-            -ms-transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-          }
-      }
-
-      .page_hidden_top{
-        bottom: 100%;
-      }
-
-      .page_scroll_down{
-        -ms-transform: translate3d(0,100%,0);
-        -webkit-transform: translate3d(0,100%,0);
-        transform: translate3d(0,100%,0);
-        -webkit-transition: transform 2s ease-in-out;
-        transition: transform 2s ease-in-out;
-      }
-
-      .content{
-        max-height: 75%;
-        overflow-y: auto;
-        padding-left: 10px;
-        padding-right: 10px;
-
-        display: none;
-      }
-      h1{
-        font-family: 'Petit Formal Script', cursive;
-      }
-      p{
-        font-family: 'Poiret One', cursive;
-      }
-    </style>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div class="page">
-      <div class="menu">
-        <div class="menu_mobile_btn" id="menu_mobile_btn">
-          <div class="menu_mobile_btn_dash"></div>
-          <div class="menu_mobile_btn_dash"></div>
-          <div class="menu_mobile_btn_dash"></div>
-        </div>
-        <div class="menu_mobile_title">
-          <span><h1>Menu</h1></span>
-        </div>
-        <div class="menu_item" id="menu_home_btn">
-          <span>Home</span>
-        </div>
-        <div class="menu_item" id="menu_location_btn">
-          <span>Location</span>
-        </div>
-        <div class="menu_item" id="menu_rsvp_btn">
-          <span>RSVP</span>
-        </div>
-      </div>
-      <div class="content" id="home" style="display: block;">
+    <!--<div id="TopMenu"></div>-->
+    <section class="hero is-success is-fullheight fullbanner">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns">
+            <div class="column is-6 is-offset-3" style="background-color: #eedec7e3; box-shadow: 4px 7px 20px 4px #000000ad;">
+              <div class="full_banner_text_border" style="border: 3px solid #ca9b21; padding-top: 8em; padding-bottom: 8em;">
+                <h1 class="title is-size-1" style="color: #000;">
+                  Save The Date
+                </h1>
+                <h2 class="subtitle is-size-3" style="color: rgb(174, 194, 0);">
+                  March 31st, 2018
+                </h2>
+              </div>
+            </div>
+          </div>
 
-        <h1 class="title">Save The Date</h1>
-        <h1 class="sub_title">March 31st, 2018</h1>
-        <p>Paula Witten and Zachary Blanton are getting married!</p>
-        <p>
-          We can't wait to celebrate with all of you! The opportunity to have our friends and family getting together
-          means the world to us. We are so excited to share this day with you all! As our big day approaches, we
-          would like to keep you informed of the event details. Be sure to check back for updates and for all of the
-          information you will need to prepare for our wedding day!
-        </p>
+        </div>
       </div>
-      <div class="content" id="location">
-        <h1>The Backstage Event Center</h1>
-        <iframe width="100%" height="250px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-9UbrVCxQYgRf0doDsT4304&key=AIzaSyCoL7NrRVY1Q_SfiRkcTV6reDSlNlIkeG0" allowfullscreen></iframe>
-        <h1 style="font-size: 1em;">625 Walnut St, Cincinnati, OH 45202</h1>
-        <p>The venue is located in downtown Cincinnati. We will be posting more information on parking and hotels soon.</p>
+      <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+          <div class="container">
+            <ul>
+              <li class="is-active"><a>Home</a></li>
+              <li><a HREF="#codeword">Location</a></li>
+              <li><a>RSVP</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-      <div class="content" id="rsvp">
-        <h1>Coming Soon</h1>
+    </section>
+
+    <section class="section content-section">
+    <div class="container">
+      <h1 class="title titles">Our Wedding</h1>
+      <h2 class="subtitle">
+        We can't wait to celebrate with all of you! The opportunity to have our friends and family getting together means the world to us. We are so excited to share this day with you all! As our big day approaches, we would like to keep you informed of the event details. Be sure to check back for updates and for all of the information you will need to prepare for our wedding day!
+      </h2>
+    </div>
+  </section>
+
+  <section class="hero is-primary is-medium midbanner">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          The Backstage Event Center
+        </h1>
+        <h2 class="subtitle">
+          625 Walnut St, Cincinnati, OH 45202
+        </h2>
       </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
-    <script>
+  </section>
 
 
-      function resize_sreen(){
-          if($(window).width() < 512){
-            $('.menu_item').addClass('menu_is_mobile')
-            $('.menu_mobile_btn').css('display', 'block');
-            $('.menu_mobile_title').css('display', 'none');
-            $('.menu_item').css('display', 'none');
-          }
-          else {
-            $('.menu_item').removeClass('menu_is_mobile')
-            $('.menu_item').css('display', 'block');
-          }
-      }
+    <section id="codeword" class="section content-section">
+    <div class="container">
+      <h1 class="title titles">Location</h1>
+      <h1>The Backstage Event Center</h1>
+        <iframe width="100%" height="450px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-9UbrVCxQYgRf0doDsT4304&key=AIzaSyCoL7NrRVY1Q_SfiRkcTV6reDSlNlIkeG0" allowfullscreen></iframe>
+        <h1 style="font-size: 1em;">625 Walnut St, Cincinnati, OH 45202</h1>
+        <p>The venue is located in downtown Cincinnati. We will be posting more information on parking and hotels soon.</p>
+    </div>
+    </section>
 
-      $(document).ready(function(){
-        //windowWidth = $(window).width();
-        resize_sreen();
-        $(window).resize(function(){
-          resize_sreen();
-        });
-      });
+    <section class="hero is-primary is-medium lastbanner">
 
-      $('#menu_mobile_btn').on('click touch', function() {
-        $('.page').animate({
-            opacity: '0'
-        }, 150, function(){
-          $('.content').css('display', 'none');
-          $('.menu_mobile_btn').css('display', 'none');
-          $('.menu_mobile_title').css('display', 'block');
-          //$('.menu_item').addClass('menu_is_mobile');
-          $('.menu_item').css('display', 'block');
-          $('.page').animate({
-            opacity: '1'
-          }, 150, function(){
+    </section>
 
-          });
-        });
-      });
+    <section class="section content-section">
+    <div class="container">
+      <h1 class="title titles">RSVP</h1>
 
-      function menu_btn_click(str){
-        if($('.menu_item').hasClass('menu_is_mobile')){
-          $('.menu_mobile_btn').css('display', 'block');
-          $('.menu_mobile_title').css('display', 'none');
-          $('.menu_item').css('display', 'none');
-        }
-        else{
-          $('.menu_mobile_btn').css('display', 'none');
-          $('.menu_mobile_title').css('display', 'none');
-        }
 
-        $('.page').velocity({
-            bottom: '-100%'
-        }, 350, function (){
-          $('.page').css('bottom', '100%');
-          $('.content').css('display', 'none');
-          $('#' + str).css('display', 'block');
-          $('.page').velocity({
-              bottom: '0%'
-          }, 350);
-        });
-        /*
-        $('.page').animate({
-            bottom: '-100%'
-        }, 350, function (){
-          $('.page').css('bottom', '100%');
-          $('.content').css('display', 'none');
-          $('#' + str).css('display', 'block');
-          $('.page').animate({
-              bottom: '0%'
-          }, 350);
-        });
-        */
-      }
 
-      $('#menu_home_btn').on('click touch', function() {
-        menu_btn_click('home');
-      });
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" placeholder="First Name">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" placeholder="Last Name">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="email" placeholder="Email">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
 
-      $('#menu_location_btn').on('click touch', function() {
-        menu_btn_click('location');
-      });
 
-      $('#menu_rsvp_btn').on('click touch', function() {
-        menu_btn_click('rsvp');
-      });
 
-    </script>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Address">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-grouped has-addons has-addons-right">
+        <p class="control">
+          <a class="button is-light">
+            Add Guest(s)
+          </a>
+        </p>
+        <p class="control">
+          <a class="button is-primary">
+            Submit RSVP
+          </a>
+        </p>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+    <section id="Content" class="section" ></section>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Copyright &copy; 2018 </strong> mrandmrsblanton.com
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script type="text/babel" src="js/app.js"></script>
   </body>
 </html>
