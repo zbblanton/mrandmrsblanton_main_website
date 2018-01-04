@@ -3,12 +3,23 @@ body {
 }
 
 .footer {
-  background-color: #a3caa4;
-  color: white;
+  background-color: #fef4e8;
+  padding: 0;
+  padding-bottom: 2em;
 }
 
 h1, h2 {
   font-family: 'Petit Formal Script', cursive;
+}
+
+a:hover {
+    color: #363636;
+}
+
+a {
+    color: #a3caa4;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .titles {
