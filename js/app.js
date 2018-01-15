@@ -127,7 +127,7 @@ class RegisterGuestComponent extends React.Component {
           !this.state.submitted &&
           <div className="field is-grouped has-addons has-addons-right">
             <p className="control">
-              <a className="button is-light" onClick={this.handleAddClick}>
+              <a className="button" onClick={this.handleAddClick}>
                 Add Guest
               </a>
             </p>
