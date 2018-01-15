@@ -14,9 +14,9 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
-    <!--<div id="TopMenu"></div>-->
     <section class="hero is-success is-fullheight fullbanner">
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -38,129 +38,60 @@
       <div class="hero-foot">
         <nav class="tabs is-boxed is-fullwidth">
           <div class="container">
-            <ul>
-              <li class="is-active"><a>Home</a></li>
-              <li><a HREF="#codeword">Location</a></li>
-              <li><a>RSVP</a></li>
+            <ul class="menu">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#location">Location</a></li>
+              <li><a href="#rsvp">RSVP</a></li>
             </ul>
           </div>
         </nav>
       </div>
     </section>
 
-    <section class="section content-section">
-    <div class="container">
-      <h1 class="title titles">Our Wedding</h1>
-      <h2 class="subtitle">
-        We can't wait to celebrate with all of you! The opportunity to have our friends and family getting together means the world to us. We are so excited to share this day with you all! As our big day approaches, we would like to keep you informed of the event details. Be sure to check back for updates and for all of the information you will need to prepare for our wedding day!
-      </h2>
-    </div>
-  </section>
-
-  <section class="hero is-primary is-medium midbanner">
-    <div class="hero-body">
+    <section id="home" class="section content-section">
       <div class="container">
-        <h1 class="title">
-          The Backstage Event Center
-        </h1>
+        <h1 class="title titles">Our Wedding</h1>
         <h2 class="subtitle">
-          625 Walnut St, Cincinnati, OH 45202
+          We can't wait to celebrate with all of you! The opportunity to have our friends and family getting together means the world to us. We are so excited to share this day with you all! As our big day approaches, we would like to keep you informed of the event details. Be sure to check back for updates and for all of the information you will need to prepare for our wedding day!
         </h2>
       </div>
-    </div>
-  </section>
-
-
-    <section id="codeword" class="section content-section">
-    <div class="container">
-      <h1 class="title titles">Location</h1>
-      <h1>The Backstage Event Center</h1>
-        <iframe width="100%" height="450px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-9UbrVCxQYgRf0doDsT4304&key=AIzaSyCoL7NrRVY1Q_SfiRkcTV6reDSlNlIkeG0" allowfullscreen></iframe>
-        <h1 style="font-size: 1em;">625 Walnut St, Cincinnati, OH 45202</h1>
-        <p>The venue is located in downtown Cincinnati. We will be posting more information on parking and hotels soon.</p>
-    </div>
     </section>
 
-    <section class="hero is-primary is-medium lastbanner">
-
+    <section class="hero is-primary is-medium midbanner">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            The Backstage Event Center
+          </h1>
+          <h2 class="subtitle">
+            625 Walnut St, Cincinnati, OH 45202
+          </h2>
+        </div>
+      </div>
     </section>
 
-    <section class="section content-section">
-    <div class="container">
-      <h1 class="title titles">RSVP</h1>
 
-
-
-      <div class="field is-horizontal">
-        <div class="field-body">
-          <div class="field">
-            <p class="control has-icons-left">
-              <input class="input" type="text" placeholder="First Name">
-              <span class="icon is-small is-left">
-                <i class="fa fa-user"></i>
-              </span>
-            </p>
-          </div>
-          <div class="field">
-            <p class="control has-icons-left">
-              <input class="input" type="text" placeholder="Last Name">
-              <span class="icon is-small is-left">
-                <i class="fa fa-user"></i>
-              </span>
-            </p>
-          </div>
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="email" placeholder="Email">
-              <span class="icon is-small is-left">
-                <i class="fa fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-check"></i>
-              </span>
-            </p>
-          </div>
-        </div>
+    <section id="location" class="section content-section">
+      <div class="container">
+        <h1 class="title titles">Location</h1>
+        <h1 class="subtitle">The Backstage Event Center</h1>
+          <iframe width="100%" height="450px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-9UbrVCxQYgRf0doDsT4304&key=AIzaSyCoL7NrRVY1Q_SfiRkcTV6reDSlNlIkeG0" allowfullscreen></iframe>
+          <h1 style="font-size: 1em;">625 Walnut St, Cincinnati, OH 45202</h1>
+          <p>The venue is located in downtown Cincinnati. We will be posting more information on parking and hotels soon.</p>
       </div>
+    </section>
 
+    <section class="hero is-primary is-medium lastbanner"></section>
 
-
-      <div class="field is-horizontal">
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" placeholder="Address">
-            </div>
-          </div>
-        </div>
+    <section id="rsvp" class="section content-section">
+      <div class="container">
+        <h1 class="title titles">RSVP</h1>
+        <div id="RegisterGuestComponent"></div>
       </div>
+    </section>
 
-      <div class="field is-grouped has-addons has-addons-right">
-        <p class="control">
-          <a class="button is-light">
-            Add Guest(s)
-          </a>
-        </p>
-        <p class="control">
-          <a class="button is-primary">
-            Submit RSVP
-          </a>
-        </p>
-      </div>
+    <footer id="FooterComponent" class="footer"></footer>
 
-
-    </div>
-  </section>
-
-
-
-    <!--<section id="Content" class="section" ></section>-->
-    <footer class="footer">
-      <div class="container has-text-centered">
-        <p><strong>Copyright &copy; 2018 </strong> mrandmrsblanton.com</p>
-        <p>Source at <strong><a href="https://github.com/zbblanton/mrandmrsblanton_main_website">GitHub</a></strong></p>
-      </div>
-    </footer>
     <script type="text/babel" src="js/app.js"></script>
   </body>
 </html>

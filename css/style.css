@@ -8,38 +8,49 @@ body {
   padding-bottom: 2em;
 }
 
-h1, h2 {
+h1, h2, p, .button {
   font-family: 'Petit Formal Script', cursive;
 }
 
+.menu li {
+  background-color: rgba(128, 142, 5, 0.42);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.subtitle{
+  padding-top: 15px;
+}
+
 a:hover {
-    color: #363636;
+  color: #363636;
 }
 
 a {
-    color: #a3caa4;
-    cursor: pointer;
-    text-decoration: none;
+  color: #a3caa4;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .titles {
-    color: #a3caa4;
-    padding-bottom: 20px;
-    margin-bottom: 52px; !important
-    border-bottom: aliceblue;
-    border-bottom-color: #cecece;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    /* text-align: center; */
+  color: #a3caa4;
+  padding-bottom: 20px;
+  margin-bottom: 52px; !important
+  border-bottom: aliceblue;
+  border-bottom-color: #cecece;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
 }
 
 .content-section {
-    padding-top: 6em;
-    padding-bottom: 6em;
+  padding-top: 6em;
+  padding-bottom: 6em;
 }
 
 .fullbanner {
-  background: url('../pic2.jpeg') no-repeat center center fixed;
+  background: url('../img/pic2.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -47,7 +58,7 @@ a {
 }
 
 .midbanner {
-  background: url('../pic1.jpeg') no-repeat center center;
+  background: url('../img/pic1.jpeg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -57,7 +68,7 @@ a {
 }
 
 .lastbanner {
-  background: url('../pic3.jpeg') no-repeat center center;
+  background: url('../img/pic3.jpeg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
