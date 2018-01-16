@@ -8,8 +8,12 @@ body {
   padding-bottom: 2em;
 }
 
-h1, h2, p, .button {
+h1, h2, p, .button, .label {
   font-family: 'Petit Formal Script', cursive;
+}
+
+.guest-input {
+  max-width: 27em;
 }
 
 .menu li {

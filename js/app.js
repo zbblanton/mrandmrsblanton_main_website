@@ -1,24 +1,16 @@
-class RegisterGuestFieldsComponent extends React.Component {
+class RegisterFieldsComponent extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="guest-info">
+      <div id="rsvp-info">
       <div className="field is-horizontal">
         <div className="field-body">
           <div className="field">
             <p className="control has-icons-left">
-              <input required className="input gFirstname" type="text" placeholder="First Name" />
-              <span className="icon is-small is-left">
-                <i className="fa fa-user"></i>
-              </span>
-            </p>
-          </div>
-          <div className="field">
-            <p className="control has-icons-left">
-              <input required className="input gLastname" type="text" placeholder="Last Name" />
+              <input required className="input gname" type="text" placeholder="First & Last Name" />
               <span className="icon is-small is-left">
                 <i className="fa fa-user"></i>
               </span>
@@ -38,7 +30,7 @@ class RegisterGuestFieldsComponent extends React.Component {
         <div className="field-body">
           <div className="field">
             <p className="control has-icons-left">
-              <input required className="input gAddress" type="text" />
+              <input required className="input gAddress" type="text" placeholder="Address" />
               <span className="icon is-small is-left">
                 <i className="fa fa-home"></i>
               </span>
@@ -52,30 +44,121 @@ class RegisterGuestFieldsComponent extends React.Component {
   }
 }
 
+class RegisterSuccessComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <article className="message is-primary">
+        <div className="message-header">
+          <p>RSVP Submitted</p>
+        </div>
+        <div className="message-body">
+          Thank you for the RSVP. In case of changes we will email you.
+        </div>
+      </article>
+    );
+  }
+}
+
+class RegisterSubmitComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="field is-grouped has-addons has-addons-right">
+          <div className="g-recaptcha" data-sitekey="6LfpPC4UAAAAAOTs1q3qVcz8K6zmdE99AwPfWFmX"></div>
+        </div>
+        <div className="field is-grouped has-addons has-addons-right">
+          <p className="control">
+            <a className="button" onClick={this.props.handleAdd}>
+              Add Guest
+            </a>
+          </p>
+          <p className="control">
+            <input type="submit" value="Submit RSVP" className="button is-primary" />
+          </p>
+        </div>
+      </div>
+    );
+  }
+}
+
+class RegisterGuestFieldComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="field guest-info">
+        <label className="label">Guest {this.props.guest + 1}</label>
+        <div className="control has-icons-left">
+          <input className="input guest-input gname" type="text" placeholder="First & Last Name" />
+          <span className="icon is-small is-left">
+            <i className="fa fa-user"></i>
+          </span>
+        </div>
+      </div>
+    );
+  }
+}
+
 class RegisterGuestComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {submitted: false, guests: [0]};
+  }
 
-    this.handleAddClick = this.handleAddClick.bind(this);
+  render() {
+    return (
+      this.props.guests.map(function (i) {
+        return (
+          <RegisterGuestFieldComponent key={i} guest={i} />
+        );
+      })
+    );
+  }
+}
+
+class RegisterComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {submitted: false, guests: []};
+
+    this.handleAdd = this.handleAdd.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleAddClick() {
-    this.state.guests.push(this.state.guests.length);
-    this.setState(this.state)
+  handleAdd() {
+    if(this.state.guests.length < 5){
+      this.state.guests.push(this.state.guests.length);
+      this.setState(this.state)
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    var guestsHTML = document.getElementsByClassName("guest-info")
+
     var guests = []
+
+    //Get rsvp info from main guest
+    var guestsHTML = document.getElementById("rsvp-info")
+    var n = guestsHTML.getElementsByClassName("gname")[0].value;
+    var e = guestsHTML.getElementsByClassName("gEmail")[0].value;
+    var a = guestsHTML.getElementsByClassName("gAddress")[0].value;
+    guests.push({"name": n, "address": e, "email": a, "guestof": ""});
+
+    //Get the rest of the guests
+    var guestsHTML = document.getElementsByClassName("guest-info")
+
     for(var i = 0; i < guestsHTML.length; i++){
-      var f = guestsHTML[i].getElementsByClassName("gFirstname")[0].value;
-      var l = guestsHTML[i].getElementsByClassName("gLastname")[0].value;
-      var e = guestsHTML[i].getElementsByClassName("gEmail")[0].value;
-      var a = guestsHTML[i].getElementsByClassName("gAddress")[0].value;
-      guests.push({"firstname": f, "lastname": l, "address": e, "email": a});
+      var g = guestsHTML[i].getElementsByClassName("gname")[0].value;
+      guests.push({"name": g, "address": "", "email": "", "guestof": n});
     }
     this.sendData(JSON.stringify({"recaptcha": grecaptcha.getResponse(), "guests": guests}))
   }
@@ -97,47 +180,20 @@ class RegisterGuestComponent extends React.Component {
   }
 
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        {
-          this.state.submitted ? (
-            <article className="message is-primary">
-              <div className="message-header">
-                <p>RSVP Submitted</p>
-              </div>
-              <div className="message-body">
-                Thank you for the RSVP. In case of changes we will email you.
-              </div>
-            </article>
-          ) : (
-            this.state.guests.map(function (i) {
-              return (
-                <RegisterGuestFieldsComponent key={i} />
-              );
-            })
-          )
-        }
-        {
-          !this.state.submitted &&
-          <div className="field is-grouped has-addons has-addons-right">
-            <div className="g-recaptcha" data-sitekey="6LfpPC4UAAAAAOTs1q3qVcz8K6zmdE99AwPfWFmX"></div>
-          </div>
-        }
-        {
-          !this.state.submitted &&
-          <div className="field is-grouped has-addons has-addons-right">
-            <p className="control">
-              <a className="button" onClick={this.handleAddClick}>
-                Add Guest
-              </a>
-            </p>
-            <p className="control">
-              <input type="submit" value="Submit RSVP" className="button is-primary" />
-            </p>
-          </div>
-        }
-      </form>
-    );
+    if(this.state.submitted){
+      return (
+        <RegisterSuccessComponent />
+      );
+    }
+    else {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <RegisterFieldsComponent />
+          <RegisterGuestComponent guests={this.state.guests} />
+          <RegisterSubmitComponent handleAdd={this.handleAdd} />
+        </form>
+      );
+    }
   }
 }
 
@@ -152,5 +208,5 @@ class FooterComponent extends React.Component {
   }
 }
 
-ReactDOM.render(<RegisterGuestComponent />, document.getElementById('RegisterGuestComponent'));
+ReactDOM.render(<RegisterComponent />, document.getElementById('RegisterComponent'));
 ReactDOM.render(<FooterComponent />, document.getElementById('FooterComponent'));
