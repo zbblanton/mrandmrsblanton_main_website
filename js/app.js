@@ -72,7 +72,7 @@ class RegisterSubmitComponent extends React.Component {
     return (
       <div>
         <div className="field is-grouped has-addons has-addons-right">
-          <div className="g-recaptcha" data-sitekey="6LfpPC4UAAAAAOTs1q3qVcz8K6zmdE99AwPfWFmX"></div>
+          <div id="g-recaptcha" className="g-recaptcha" data-sitekey="6LfpPC4UAAAAAOTs1q3qVcz8K6zmdE99AwPfWFmX"></div>
         </div>
         <div className="field is-grouped has-addons has-addons-right">
           <p className="control">
@@ -151,7 +151,7 @@ class RegisterComponent extends React.Component {
     var n = guestsHTML.getElementsByClassName("gname")[0].value;
     var e = guestsHTML.getElementsByClassName("gEmail")[0].value;
     var a = guestsHTML.getElementsByClassName("gAddress")[0].value;
-    guests.push({"name": n, "address": e, "email": a, "guestof": ""});
+    guests.push({"name": n, "address": a, "email": e, "guestof": ""});
 
     //Get the rest of the guests
     var guestsHTML = document.getElementsByClassName("guest-info")
@@ -210,3 +210,4 @@ class FooterComponent extends React.Component {
 
 ReactDOM.render(<RegisterComponent />, document.getElementById('RegisterComponent'));
 ReactDOM.render(<FooterComponent />, document.getElementById('FooterComponent'));
+grecaptcha.render("g-recaptcha")
