@@ -6,6 +6,8 @@ class RegisterFieldsComponent extends React.Component {
   render() {
     return (
       <div id="rsvp-info">
+      <p>Please fill out the form below to digitally RSVP. Click the "Add Guest" button to add up to 5 guests. Your email and address will only be used to notify you of updates or to send out cards.</p>
+      <br />
       <div className="field is-horizontal">
         <div className="field-body">
           <div className="field">
