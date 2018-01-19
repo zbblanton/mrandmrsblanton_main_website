@@ -19,6 +19,16 @@ class RegisterFieldsComponent extends React.Component {
             </p>
           </div>
           <div className="field">
+            <div className="control">
+              <div className="select is-fullwidth">
+                <select className="gAttending">
+                  <option value="Yes">accepts with pleasure</option>
+                  <option value="No">declines with regret</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div className="field">
             <p className="control has-icons-left has-icons-right">
               <input required className="input gEmail" type="email" placeholder="Email" />
               <span className="icon is-small is-left">
@@ -68,6 +78,10 @@ class RegisterSuccessComponent extends React.Component {
 class RegisterSubmitComponent extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+//    grecaptcha.render("g-recaptcha")
   }
 
   render() {
@@ -151,16 +165,18 @@ class RegisterComponent extends React.Component {
     //Get rsvp info from main guest
     var guestsHTML = document.getElementById("rsvp-info")
     var n = guestsHTML.getElementsByClassName("gname")[0].value;
+    var r = guestsHTML.getElementsByClassName("gAttending")[0] //First get the select box, then get the selected index below
+    r = r.options[r.selectedIndex].value;
     var e = guestsHTML.getElementsByClassName("gEmail")[0].value;
     var a = guestsHTML.getElementsByClassName("gAddress")[0].value;
-    guests.push({"name": n, "address": a, "email": e, "guestof": ""});
+    guests.push({"name": n, "address": a, "email": e, "attending": r, "guestof": ""});
 
     //Get the rest of the guests
     var guestsHTML = document.getElementsByClassName("guest-info")
 
     for(var i = 0; i < guestsHTML.length; i++){
       var g = guestsHTML[i].getElementsByClassName("gname")[0].value;
-      guests.push({"name": g, "address": "", "email": "", "guestof": n});
+      guests.push({"name": g, "address": "", "email": "", "attending": r, "guestof": n});
     }
     this.sendData(JSON.stringify({"recaptcha": grecaptcha.getResponse(), "guests": guests}))
   }

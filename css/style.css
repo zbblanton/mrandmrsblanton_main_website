@@ -8,12 +8,16 @@ body {
   padding-bottom: 2em;
 }
 
-h1, h2, p, .button, .label {
+h1, h2, p, .button, .label, label {
   font-family: 'Petit Formal Script', cursive;
 }
 
 .guest-input {
   max-width: 27em;
+}
+
+.rsvp-checkbox-label {
+  color: #a3caa4;
 }
 
 .menu li {
