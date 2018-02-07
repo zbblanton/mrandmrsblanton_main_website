@@ -12,6 +12,10 @@ h1, h2, p, .button, .label, label {
   font-family: 'Petit Formal Script', cursive;
 }
 
+p {
+  font-family: initial;
+}
+
 .guest-input {
   max-width: 27em;
 }
