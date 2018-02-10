@@ -9,7 +9,12 @@ body {
 }
 
 h1, h2, p, .button, .label, label {
-  font-family: 'Petit Formal Script', cursive;
+  /*font-family: 'Petit Formal Script', cursive;*/
+  font-family: 'Pinyon Script', cursive;
+}
+
+.parking-columns .column h2 {
+  color: #68ad69;
 }
 
 p {
@@ -41,7 +46,7 @@ a:hover {
 }
 
 a {
-  color: #a3caa4;
+  color: #68ad69;
   cursor: pointer;
   text-decoration: none;
 }
